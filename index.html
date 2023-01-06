@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Animation</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            overflow: hidden;
+        }
+    .container{
+        position: relative;
+        width: 100wh;
+        height: 100vh;
+        background: url('carimg.jpg');
+        background-size: cover;     
+        background-repeat: repeat-x;
+        background-position: 0px;
+        overflow: hidden;
+        animation:bgmove 5s linear infinite;
+    }        
+    @keyframes bgmove {
+        0%{
+            background-position: 5000px;
+        }
+        100%{
+            background-position: 0px;
+        }
+        
+    }
+
+    #car{
+        position:absolute;
+        bottom: 3px;
+        
+        background: url('car_body.png');
+         width: 300px;
+        height: 200px; 
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: center; 
+        animation: car 5s linear infinite;
+    }
+      @keyframes car{
+        0%{
+            left:-10%;
+        }
+        100%{
+            left:100%;
+        }
+     } 
+     .tyre{
+        width: 53px;
+        height: 53px;
+        background:url('car_wheel_l.png');
+        background-repeat: no-repeat;
+        border-radius: 40%;
+     
+     }
+     @keyframes rotation {
+        0%{
+            rotate: 0;
+        }
+
+        100%{
+            rotate: -360deg;
+        }
+    
+     }
+     .left{
+        position:absolute;
+        top: 94px;
+        left:46px;
+        animation:rotation 9s linear infinite backwards;
+     }
+     .right{
+        position: absolute;
+        top: 96px;
+        left: 182px;
+        animation:rotation 9s linear infinite backwards;
+     }
+     .sky{
+    width: 100vw;
+    height: 100vh;
+    background-image: url(sky.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+}
+.tree{
+    height: 100vh;
+    background-image: url(tree-removebg-preview\ \(1\).png);
+    background-repeat:no-repeat;
+    background-size: cover;
+}
+.track{
+    background-image: url(track.jpeg);
+    background-repeat: repeat-x;
+    position: absolute;
+    bottom: 0px;
+    width: 1000vw;
+    height: 20vh;
+    animation: trackanimation 6s linear infinite;
+}
+@keyframes wheelanimation{
+
+100%{
+    transform: rotate(360deg);
+}
+}
+@keyframes trackanimation{
+ 
+100%{
+    transform: translate(-500vw);
+}
+}
+    </style>
+</head>
+<body class="sky">
+    <div class="tree"></div>
+    <div class="track"></div>
+
+    <div id="car">
+        <div class="tyre right"></div>
+        <div class="tyre left"></div>
+    </div>
+
+</body>
+</html>
